@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #0c1b21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-box {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.loading-title {
+    color: white;
+    font-family: "Cascadia Mono";
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.loading-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    position: relative;
+    filter: url(#goo);
+}
+
+@keyframes shink {
+    0%, 100% {
+        left: 0;
+    }
+    60% {
+        left: calc(35px * 3);
+    }
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(45deg, #c7eeff, #03a9f4);
+    box-shadow: 0 0 30px #00bcd4;
+    border-radius: 50%;
+    top: 0;
+    left: calc(35px * var(--i) + 3px);
+}
+
+.liquid::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(240deg, #c7eeff, #03a9f4);
+    box-shadow: 0 0 30px #00bcd4;
+    border-radius: 50%;
+    top: -3px;
+    animation: shink 3s ease-in-out infinite;
+}
+
+svg {
+    width: 0;
+    height: 0;
+}
